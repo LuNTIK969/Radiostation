@@ -62,9 +62,9 @@ public class Radio {
             return;
         }
         if (newCurrentStation > maxStation) {
+            setCurrentStation(maxStation);
             return;
         }
-
         currentStation = newCurrentStation;
     }
 

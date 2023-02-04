@@ -10,9 +10,9 @@ public class RadioTest {
     @Test
     public void shouldSetVolume() {
         Radio rad = new Radio();
-        rad.setCurrentVolume(5);
+        rad.setCurrentVolume(15);
 
-        int expected = 5;
+        int expected = 15;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -32,6 +32,18 @@ public class RadioTest {
 
     @Test
     public void shouldSetMinVolume() {
+        Radio rad = new Radio();
+
+        rad.setMinVolume(0);
+
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldMute() {
         Radio rad = new Radio();
 
         rad.mute();
@@ -110,11 +122,11 @@ public class RadioTest {
     @Test
     public void prevStation() {
         Radio rad = new Radio();
-        rad.setCurrentStation(3);
+        rad.setCurrentStation(6);
 
         rad.prevStation();
 
-        int expected = 2;
+        int expected = 5;
         int actual = rad.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -162,7 +174,7 @@ public class RadioTest {
         Radio rad = new Radio();
         rad.setCurrentStation(10);
 
-        int expected = 0;
+        int expected = 9;
         int actual = rad.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);

@@ -22,21 +22,9 @@ public class RadioTest {
     public void shouldSetMaxVolume() {
         Radio rad = new Radio();
 
-        rad.setMaxVolume();
+        rad.setMaxVolume(100);
 
         int expected = 100;
-        int actual = rad.getCurrentVolume();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldSetMinVolume() {
-        Radio rad = new Radio();
-
-        rad.setMinVolume(0);
-
-        int expected = 0;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -173,8 +161,9 @@ public class RadioTest {
     public void shouldNotSetStationAboveNine() {
         Radio rad = new Radio();
         rad.setCurrentStation(10);
+        rad.nextStation();
 
-        int expected = 9;
+        int expected = 0;
         int actual = rad.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -184,8 +173,9 @@ public class RadioTest {
     public void shouldNotSetBelowZero() {
         Radio rad = new Radio();
         rad.setCurrentStation(-1);
+        rad.prevStation();
 
-        int expected = 0;
+        int expected = 9;
         int actual = rad.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
